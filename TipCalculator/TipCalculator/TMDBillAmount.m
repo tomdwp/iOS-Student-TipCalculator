@@ -35,4 +35,9 @@
     return ( amount +  (amount * tipPercentage) );
 }
 
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"%.2f", self.billAmount];
+}
+
 @end

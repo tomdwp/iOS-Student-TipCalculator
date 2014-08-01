@@ -16,7 +16,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *fifteenPercentTipAmountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *tenPercentTipAmountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *userDeterminedTipAmountLabel;
-@property (weak, nonatomic) IBOutlet UILabel *originalBillAmountLabel;
+
+@property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *originalBilledAmountLabel;
 
 
 @property (weak, nonatomic) IBOutlet UILabel *totalBillForTwentyPercentTipLabel;
@@ -25,10 +26,13 @@
 @property (weak, nonatomic) IBOutlet UILabel *totalBillUserPercentTipLabel;
 
 @property (weak, nonatomic) IBOutlet UIStepper *userTipStepper;
+@property (weak, nonatomic) IBOutlet UILabel *userTipAmountDisplayLabel;
 
 @property (strong, nonatomic) TMDBillAmount *billAmount;
 
 - (IBAction)changeUserTipPercentage:(id)sender;
+
+- (void)updateUI;
 
 @end
 
@@ -41,6 +45,10 @@
     
     self.billAmount = [[TMDBillAmount alloc] init];
     
+    self.billAmountTextField.delegate = self;
+    
+    
+    [self clearUI];
     
 }
 
@@ -52,4 +60,40 @@
 
 - (IBAction)changeUserTipPercentage:(id)sender {
 }
+
+
+- (void)updateUI
+{
+    NSLog(@"self.billAmountTextField.text:  %@   \n self.billAmountTextField.text.doubleValue:  %f", self.billAmountTextField.text, self.billAmountTextField.text.doubleValue);
+    
+    if ( self.billAmountTextField.text.doubleValue != 0.0) {
+        self.billAmount.billAmount = self.billAmountTextField.text.doubleValue;
+        
+        //self.originalBillAmountLabel.text = self.billAmount.description;
+        for (UILabel *originalBillAmtLabel in self.originalBilledAmountLabel) {
+            originalBillAmtLabel.text = self.billAmount.description;
+        }
+        
+    }
+}
+
+- (void)clearUI
+{
+    
+    for (UILabel *originalBillAmtLabel in self.originalBilledAmountLabel) {
+        originalBillAmtLabel.text = @"";
+    }
+
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    NSLog(@"textFieldShouldReturn...");
+    [self updateUI];
+    
+    [self.billAmountTextField resignFirstResponder];
+    return YES;
+}
+
+
 @end

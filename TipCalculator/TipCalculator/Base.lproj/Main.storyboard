@@ -97,7 +97,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="user% tip amout" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o94-b9-GJZ">
-                                <rect key="frame" x="121" y="383" width="92" height="21"/>
+                                <rect key="frame" x="125" y="431" width="92" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
@@ -200,7 +200,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="user tip amout" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hwc-xx-a1A">
-                                <rect key="frame" x="128" y="430" width="95" height="21"/>
+                                <rect key="frame" x="125" y="383" width="95" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
@@ -235,7 +235,6 @@
                     <connections>
                         <outlet property="billAmountTextField" destination="WSS-60-QEQ" id="En3-TI-Jxb"/>
                         <outlet property="fifteenPercentTipAmountLabel" destination="DzW-yn-9TL" id="V8H-Nh-9sd"/>
-                        <outlet property="originalBillAmountLabel" destination="REh-rP-jwn" id="ZxL-iJ-EkG"/>
                         <outlet property="tenPercentTipAmountLabel" destination="Up7-dY-SJP" id="p8t-bS-Lyb"/>
                         <outlet property="totalBillFifteenPercentTipLabel" destination="kHH-oE-okT" id="fYm-6x-zLr"/>
                         <outlet property="totalBillForTwentyPercentTipLabel" destination="GkH-6g-pFe" id="tlu-13-ulL"/>
@@ -243,7 +242,12 @@
                         <outlet property="totalBillUserPercentTipLabel" destination="EZR-s9-wM9" id="fZk-Ft-zTk"/>
                         <outlet property="twentyPercentTipAmountLabel" destination="91C-oS-kXL" id="9fq-cd-LeZ"/>
                         <outlet property="userDeterminedTipAmountLabel" destination="o94-b9-GJZ" id="BP8-JU-AFY"/>
+                        <outlet property="userTipAmountDisplayLabel" destination="hwc-xx-a1A" id="ytA-0C-L4v"/>
                         <outlet property="userTipStepper" destination="pEt-GL-FoW" id="2VO-TQ-DaQ"/>
+                        <outletCollection property="originalBilledAmountLabel" destination="s6U-oI-aKl" id="U7v-7I-Pa6"/>
+                        <outletCollection property="originalBilledAmountLabel" destination="REh-rP-jwn" id="xbA-JM-aE4"/>
+                        <outletCollection property="originalBilledAmountLabel" destination="cDj-Os-lL4" id="Na0-q1-5if"/>
+                        <outletCollection property="originalBilledAmountLabel" destination="55f-tQ-ade" id="hFM-aH-6vm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
