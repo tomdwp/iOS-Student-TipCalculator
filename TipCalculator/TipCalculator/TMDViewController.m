@@ -35,6 +35,10 @@
 
 - (void)updateUI;
 
+- (void)clearUI;
+
+- (void)userEditedBillAmountTextField;
+
 @end
 
 @implementation TMDViewController
@@ -54,6 +58,10 @@
     self.userTipStepper.maximumValue = 35.0;
     self.userTipStepper.stepValue = 0.5;
     self.userTipStepper.value = 17.5;
+    
+    
+    //register for notifications when the billAmountTextField gets edited
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userEditedBillAmountTextField) name:@"UITextFieldTextDidChangeNotification" object:nil];
     
     
     [self clearUI];
@@ -106,8 +114,9 @@
         
         self.userTipAmountDisplayLabel.text = [NSString stringWithFormat:@"%.1f", self.userTipStepper.value];
         
-        self.totalBillUserPercentTipLabel.text = [self.billAmount formatCalculationOfTotalBillWitTip:self.userTipStepper.value];
         
+        self.userDeterminedTipAmountLabel.text = [self.billAmount formatCalculationOfTip:(self.userTipStepper.value * 0.01)];
+        self.totalBillUserPercentTipLabel.text = [self.billAmount formatCalculationOfTotalBillWitTip:(self.userTipStepper.value * 0.01)];
         
     }
 }
@@ -152,13 +161,34 @@
     
 }
 
-#pragma mark - UITextField Protocol methods
-
-- (void)textFieldDidBeginEditing:(UITextField *)textField
+- (void)userEditedBillAmountTextField
 {
-    // don't think I need this method
+    NSLog(@"userEditedBillAmountTextField called...");
+    
+    if ( self.billAmountTextField.text.doubleValue != 0.0) {
+        
+        NSRange rangeOfDotCharacter = [self.billAmountTextField.text rangeOfString:@"."];
+        
+        if(rangeOfDotCharacter.location != NSNotFound) {
+            
+            NSArray *stringArray = [self.billAmountTextField.text componentsSeparatedByString:@"."];
+            
+            if ([stringArray count] == 2) {
+                
+                if (((NSString *)stringArray[1]).length == 2) {
+                    
+                    [self.billAmountTextField resignFirstResponder];
+                    [self updateUI];
+                }
+                
+            }
+        }
+    }
+
+    
 }
 
+#pragma mark - UITextField Protocol methods
 
 //- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 //{
@@ -181,7 +211,7 @@
 //            }
 //        }
 //    }
-//    
+//
 //    return YES;
 //}
 
