@@ -10,12 +10,15 @@
 
 @interface TMDBillAmount : NSObject
 
-@property double billAmount;
+@property double originalBillAmount;
 
 
-- (double)calculatePercentageTip:(double)tipPercentage forAmount:(double)amount;
+- (double)calculatePercentageTip:(double)tipPercentage;
 
-- (double)calculateTotalBillAmountWitTip:(double)tipPercentage originalBillAmount:(double)amount;
+- (double)calculateTotalBillAmountWitTip:(double)tipPercentage;
+
+- (NSString *)formatCalculationOfTip:(double)tipPercentage;
+- (NSString *)formatCalculationOfTotalBillWitTip:(double)tipPercentage;
 
 
 @end

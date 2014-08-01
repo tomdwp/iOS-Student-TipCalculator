@@ -24,20 +24,30 @@
 }
 
 
-- (double)calculatePercentageTip:(double)tipPercentage forAmount:(double)amount
+- (double)calculatePercentageTip:(double)tipPercentage
 {
-    return ( amount * tipPercentage );
+    return ( self.originalBillAmount * tipPercentage );
 }
 
 
-- (double)calculateTotalBillAmountWitTip:(double)tipPercentage originalBillAmount:(double)amount
+- (double)calculateTotalBillAmountWitTip:(double)tipPercentage
 {
-    return ( amount +  (amount * tipPercentage) );
+    return ( self.originalBillAmount +  (self.originalBillAmount * tipPercentage) );
+}
+
+- (NSString *)formatCalculationOfTip:(double)tipPercentage
+{
+    return [NSString stringWithFormat:@"%.2f", [self  calculatePercentageTip:tipPercentage]];
+}
+
+- (NSString *)formatCalculationOfTotalBillWitTip:(double)tipPercentage
+{
+    return [NSString stringWithFormat:@"%.2f", [self calculateTotalBillAmountWitTip:tipPercentage]];
 }
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"%.2f", self.billAmount];
+    return [NSString stringWithFormat:@"%.2f", self.originalBillAmount];
 }
 
 @end

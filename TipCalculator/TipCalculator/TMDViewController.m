@@ -67,12 +67,20 @@
     NSLog(@"self.billAmountTextField.text:  %@   \n self.billAmountTextField.text.doubleValue:  %f", self.billAmountTextField.text, self.billAmountTextField.text.doubleValue);
     
     if ( self.billAmountTextField.text.doubleValue != 0.0) {
-        self.billAmount.billAmount = self.billAmountTextField.text.doubleValue;
+        self.billAmount.originalBillAmount = self.billAmountTextField.text.doubleValue;
         
         //self.originalBillAmountLabel.text = self.billAmount.description;
         for (UILabel *originalBillAmtLabel in self.originalBilledAmountLabel) {
             originalBillAmtLabel.text = self.billAmount.description;
         }
+        
+        self.twentyPercentTipAmountLabel.text = [self.billAmount formatCalculationOfTip:0.20];
+        self.fifteenPercentTipAmountLabel.text = [self.billAmount formatCalculationOfTip:0.15];
+        self.tenPercentTipAmountLabel.text = [self.billAmount formatCalculationOfTip:0.10];
+        
+        self.totalBillForTwentyPercentTipLabel.text = [self.billAmount formatCalculationOfTotalBillWitTip:0.20];
+        self.totalBillFifteenPercentTipLabel.text = [self.billAmount formatCalculationOfTotalBillWitTip:0.15];
+        self.totalBillTenPercentTipLabel.text = [self.billAmount formatCalculationOfTotalBillWitTip:0.10];
         
     }
 }
