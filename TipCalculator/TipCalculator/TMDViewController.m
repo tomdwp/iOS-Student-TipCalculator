@@ -10,6 +10,13 @@
 
 @interface TMDViewController ()
 
+@property (weak, nonatomic) IBOutlet UITextField *billAmountTextField;
+@property (weak, nonatomic) IBOutlet UILabel *twentyPercentTipAmountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *fifteenPercentTipAmountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *tenPercentTipAmountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *userDeterminedTipAmountLabel;
+
+
 @end
 
 @implementation TMDViewController
