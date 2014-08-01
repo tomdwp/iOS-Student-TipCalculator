@@ -7,6 +7,7 @@
 //
 
 #import "TMDViewController.h"
+#import "TMDBillAmount.h"
 
 @interface TMDViewController ()
 
@@ -15,7 +16,19 @@
 @property (weak, nonatomic) IBOutlet UILabel *fifteenPercentTipAmountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *tenPercentTipAmountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *userDeterminedTipAmountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *originalBillAmountLabel;
 
+
+@property (weak, nonatomic) IBOutlet UILabel *totalBillForTwentyPercentTipLabel;
+@property (weak, nonatomic) IBOutlet UILabel *totalBillFifteenPercentTipLabel;
+@property (weak, nonatomic) IBOutlet UILabel *totalBillTenPercentTipLabel;
+@property (weak, nonatomic) IBOutlet UILabel *totalBillUserPercentTipLabel;
+
+@property (weak, nonatomic) IBOutlet UIStepper *userTipStepper;
+
+@property (strong, nonatomic) TMDBillAmount *billAmount;
+
+- (IBAction)changeUserTipPercentage:(id)sender;
 
 @end
 
@@ -25,6 +38,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    self.billAmount = [[TMDBillAmount alloc] init];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -33,4 +50,6 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)changeUserTipPercentage:(id)sender {
+}
 @end

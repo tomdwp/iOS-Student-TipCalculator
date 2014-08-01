@@ -21,6 +21,7 @@
 		6325803E198C14B8004E88F1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63258020198C14B8004E88F1 /* UIKit.framework */; };
 		63258046198C14B8004E88F1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 63258044198C14B8004E88F1 /* InfoPlist.strings */; };
 		63258048198C14B8004E88F1 /* TipCalculatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 63258047198C14B8004E88F1 /* TipCalculatorTests.m */; };
+		63258053198C1953004E88F1 /* TMDBillAmount.m in Sources */ = {isa = PBXBuildFile; fileRef = 63258052198C1953004E88F1 /* TMDBillAmount.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		63258043198C14B8004E88F1 /* TipCalculatorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TipCalculatorTests-Info.plist"; sourceTree = "<group>"; };
 		63258045198C14B8004E88F1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		63258047198C14B8004E88F1 /* TipCalculatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TipCalculatorTests.m; sourceTree = "<group>"; };
+		63258051198C1953004E88F1 /* TMDBillAmount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMDBillAmount.h; sourceTree = "<group>"; };
+		63258052198C1953004E88F1 /* TMDBillAmount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMDBillAmount.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +116,8 @@
 			isa = PBXGroup;
 			children = (
 				6325802B198C14B8004E88F1 /* TMDAppDelegate.h */,
+				63258051198C1953004E88F1 /* TMDBillAmount.h */,
+				63258052198C1953004E88F1 /* TMDBillAmount.m */,
 				6325802C198C14B8004E88F1 /* TMDAppDelegate.m */,
 				6325802E198C14B8004E88F1 /* Main.storyboard */,
 				63258031198C14B8004E88F1 /* TMDViewController.h */,
@@ -252,6 +257,7 @@
 			files = (
 				6325802D198C14B8004E88F1 /* TMDAppDelegate.m in Sources */,
 				63258029198C14B8004E88F1 /* main.m in Sources */,
+				63258053198C1953004E88F1 /* TMDBillAmount.m in Sources */,
 				63258033198C14B8004E88F1 /* TMDViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
